@@ -1,0 +1,200 @@
+#circles-container{
+	position: relative;
+	width:65%;
+	height:65%;
+	z-index: 99;
+}
+#main-circle-content{
+	position: relative;
+	border-radius: 50%;
+	border-width: 0px;
+	overflow: hidden;
+	background-color: #eaeaea;
+	left:5%;
+	top: 5%;
+	width: 88%;
+	height:88%;
+	padding:1%; 
+	z-index: 10;
+	opacity: 1;
+	text-align: center;
+	transition-timing-function: ease-in-out;
+	transition-property: all;
+	transition-duration: 300ms;
+}	
+
+#main-circle-content img{
+	width: 100%;
+	height:100%;
+	border-width: 0px;
+	border-radius: 50%;
+	transition-timing-function: ease-in-out;
+	transition-property: all;
+	transition-duration: 300ms;
+}
+#main-circle-content .caption{
+	position: absolute;
+	bottom: 20%;
+	left: 15%;
+	right: 15%;
+	width: 66%;
+	
+	color:#fff;
+	opacity: 0;
+	font-size: 1.1em;
+	background-color: rgba(0,0,0,.5);
+	border-radius: 10px;
+	transition-timing-function: ease-in-out;
+	transition-property: all;
+	transition-duration: 300ms;
+}
+.enlarge-main-circle-content,
+.enlarge-main-circle-content,
+.enlarge-main-circle-content img,
+.enlarge-main-circle-content img{
+	animation-name: borderdownfull;
+	animation-duration: 400ms;
+	animation-timing-function: ease-out;
+	border-radius: 50%;
+}
+.enlarge-main-circle-content:hover,
+.enlarge-main-circle-content:focus,
+.enlarge-main-circle-content img:hover,
+.enlarge-main-circle-content img:focus{
+	animation-name: borderfulldown;
+	animation-duration: 300ms;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 1;
+	animation-fill-mode:forwards;
+	border-radius: 10%;
+}
+@keyframes borderfulldown{
+	0%{border-radius: 50%;}
+	10%{border-radius: 40%;}
+	20%{border-radius: 30%;}
+	30%{border-radius: 20%;}
+	40%{border-radius: 10%;}
+	50%{border-radius: 0%;}
+	60%{border-radius: 10%;}
+	70%{border-radius: 13%;}
+	80%{border-radius: 16%;}
+	90%{border-radius: 12%;}
+	100%{border-radius: 10%;}
+}
+@keyframes borderdownfull{
+	0%{border-radius: 10%;}
+	10%{border-radius: 20%;}
+	20%{border-radius: 30%;}
+	30%{border-radius: 40%;}
+	40%{border-radius: 50%;}
+	50%{border-radius: 90%;}
+	60%{border-radius: 90%;}
+	70%{border-radius: 53%;}
+	80%{border-radius: 56%;}
+	90%{border-radius: 52%;}
+	100%{border-radius: 50%;}
+}
+@keyframes fade{
+	0%{
+		opacity: 0;
+	}
+	50%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 0;
+	}
+}
+#main-circle-content:hover .caption,
+#main-circle-content:focus .caption{
+	opacity: 0.6;
+	transition-timing-function: ease-in-out;
+	transition-property: all;
+	transition-duration: 300ms;
+}
+#circle{
+	position: absolute;
+	left:5%;
+	top: 5%;
+	width: 89%;
+	border-width: 0px;
+	border-radius: 50%;
+	text-align: center;
+}
+
+.min-circle{
+	position: absolute;
+	z-index: 999;
+	border:1px solid #aeaeae;
+	text-align: center;
+	border-radius: 50%;
+	border-style: solid;
+	border-width: 1px;
+	background-color: #efefef;
+	overflow: hidden;
+	opacity: 0.7;
+	transition-duration: 1000ms;
+	transition-property: all;
+	transition-timing-function: ease-in-out;
+
+}
+.min-circle img{
+	width: 100%;
+	height: 100%;
+	
+	
+}
+.min-circle img:hover{
+	animation-name: pulse;
+	animation-duration: 200ms;
+	z-index: 99;
+	animation-timing-function: ease-in-out;
+}
+.min-circle:hover{
+	opacity: 1;
+	z-index: 99;
+	transition-timing-function: linear;
+	transition-property: all;
+	transition-duration: 100ms;
+
+}
+.fade{
+	animation-name: fade;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+@keyframes pulse{
+	0%{transform: scale(1);}
+	50%{transform: scale(1.1);}
+	100%{transform: scale(1);}
+}
+@keyframes zoomOutIn{
+	0%{transform: scale(1);}
+	20%{transform: scale(0.5);}
+	40%{transform: scale(1);}
+	70%{transform: scale(0.8);}
+	100%{transform: scale(1);}
+}
+.animate-main{
+	border-radius: 50%;
+	transition-property: all;
+	transition-duration: 300ms;
+	transition-timing-function: ease-in-out;
+}
+
+.rotate{
+	transform: rotate(10deg);
+	transition-property: all;
+	transition-duration: 100ms;
+	transition-timing-function: linear;
+}
+.rotate-circle{
+	transition-duration: 500ms;
+	transition-property: all;
+	transition-timing-function: ease-in-out;
+}
+
+.content-text{
+	visibility: hidden;
+}
