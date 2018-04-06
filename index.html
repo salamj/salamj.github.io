@@ -4,7 +4,7 @@
           <meta charset="utf-8">
           <meta http-equiv="x-ua-compatible" content="ie=edge">
     	  <meta name="viewport" content="width=device-width, initial-scale=1">
-          <title>jCircle - Free and Opensource javascript Library</title>
+          <title>jCircl - Free and Opensource javascript Library</title>
           <meta name="description" content="free and opensource javascript library to view images gallery or any html content in circle style with mini circles around it">
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <link rel="stylesheet" href="css/normalize.css">
@@ -270,7 +270,7 @@ textCircle.create();
       		<h2 class="text-center">Download</h2>
       		<p>
       		Download jCircle, downloaded file contains .js library, .css files required and .html file demo.</p>
-      		<a href="https://github.com/salamj/jcircle"><button class="btn btn-success btn-md">Download jCircle.v1.0</button></a>
+      		<a href="download.php"><button class="btn btn-success btn-md">Download jCircle.v1.0</button></a>
       		<p>
       		<a href="https://www.paypal.com/cgi-bin/webscr?&amp;cmd=_xclick&amp;business=aljehni@gmail.com&amp;currency_code=USD&amp;amount=12&amp;item_name=Support_jCircle" target="_blank">Donate</a> to Support jCircle and our incoming projects.
       		</p>
@@ -321,8 +321,8 @@ myCircle.create();
 </pre></li>
 			   				</ol>
 			   				<h4 class="text-center">Pass options</h4>
-			   				You can change defaults by passing options in <em>create</em> function like this:
-			   				<pre style="background:#181818;color:#f8f8f8">new jCircle().create({
+			   				You can change defaults by passing options in creation instance like this:
+			   				<pre style="background:#181818;color:#f8f8f8">new jCircle({
     animateCircles: <span style="color:#cf6a4c">false</span>,
     mainContentOverAction: <span style="color:#8f9d6a">'enlarge-view'</span>
 });
@@ -332,7 +332,498 @@ myCircle.create();
 			   		</div>
 			   		<div class="col-xs-12 col-sm-6">
 			   			<h3 class="text-center">Options</h3>
-			   			You may change some options in <em>create({})</em> function, All options is listed below:<br>
+			   			You may change some options in <em>new jCircle()</em>, All options is listed below:<br>
+			   			<div class="table-responsive">
+			   			<table class="table table-striped">
+			   				<thead>
+			   					<tr>
+			   						<th style="width:30%">Option</th>
+			   						<th style="width:70%">Values</th>
+			   					</tr>
+			   				</thead>
+			   				<tbody>
+			   					<tr>
+			   						<td>
+			   							container
+			   						</td>
+			   						<td>
+			   							ID for div that contains all gallery.<br>
+			   							<b>Default value:</b><em class="green">"circles-container"</em>
+			   						</td>
+			   					</tr>
+			   					<tr>
+			   						<td>
+			   							circle
+			   						</td>
+			   						<td>
+			   							ID for div that contains all circles<br>
+			   							<b>Default value:</b><em class="green">'circle'</em>
+			   						</td>
+			   					</tr>
+			   					<tr>
+			   						<td>
+			   							mainContent
+			   						</td>
+			   						<td>
+			   							ID for div that contains the big circle.<br>
+			   							<b>Default value:</b><em class="green">'main-circle-content'</em>
+			   						</td>
+			   					</tr>
+			   					<tr>
+			   						<td>
+			   							minCirclesClass
+			   						</td>
+			   						<td>
+			   							Class name for divs that are mini circles.<br>
+			   							<b>Default value:</b><em class="green">'min-circle'</em>
+			   						</td>
+			   					</tr>
+			   					<tr>
+			   						<td>
+			   							animateCircles
+			   						</td>
+			   						<td>
+			   							To make mini Circles animate (option value: <em class="blue">true</em>) or not (option value: <em class="blue">false</em>).
+			   							<div class="highlight">Available Values: <b>true</b> , <b>false</b></div>
+			   							<b>Default value:</b><em class="green">true</em>
+			   						</td>
+			   					</tr>
+			   					<tr>
+			   						<td>
+			   							animateStatus
+			   						</td>
+			   						<td>
+			   							To make mini Circles animation played (option value: <em class="blue">'play'</em>) or paused (option value: <em class="blue">'pause'</em>).
+			   							<div class="highlight">Available Values: <b>'play'</b> , <b>'pause'</b></div>
+			   							<b>Default value:</b><em class="green">'play'</em>
+			   						</td>
+			   					</tr>
+			   					<tr>
+			   						<td>
+			   							speed
+			   						</td>
+			   						<td>
+			   							Set delay time between animation.
+			   							<div class="highlight">Available Values: <b>1,2,3,4...</b></div>
+			   							<b>Default value:</b><em class="green">3</em>
+			   						</td>
+			   					</tr>
+			   					<tr>
+			   						<td>
+			   							stopOnOverMain
+			   						</td>
+			   						<td>
+			   							To stop animation on mouse over main circle (option value: <em class="blue">true</em>) or not (option value: <em class="blue">false</em>).
+			   							<div class="highlight">Available Values: <b>true</b> , <b>false</b></div>
+			   							<b>Default value:</b><em class="green">true</em>
+			   						</td>
+			   					</tr>
+			   					<tr>
+			   						<td>
+			   							stopOnOverMini
+			   						</td>
+			   						<td>
+			   							To stop animation on mouse over mini circles (option value: <em class="blue">true</em>) or not (option value: <em class="blue">false</em>).
+			   							<div class="highlight">Available Values: <b>true</b> , <b>false</b></div>
+			   							<b>Default value:</b><em class="green">true</em>
+			   						</td>
+			   					</tr>
+			   					<tr>
+			   						<td>
+			   							minCirclesEffectOver
+			   						</td>
+			   						<td>
+			   							Effect when mouse over mini circles.
+			   							<div class="highlight">Available Values: <b>'none'</b> , <b>'pulse'</b>, <b>'zoomOutIn'</b>, <b>'flip'</b>, <b>'rotate'</b></div>
+			   							<b>Default value:</b><em class="green">'pulse'</em>
+			   						</td>
+			   					</tr>
+			   					<tr>
+			   						<td>
+			   							contentType
+			   						</td>
+			   						<td>
+			   							Set item's content type, images (option value: <em class="blue">'images'</em>) or text (option value: <em class="blue">'text'</em>).
+			   							<div class="highlight">Available Values: <b>'images'</b> , <b>'text'</b></div>
+			   							<b>Default value:</b><em class="green">'images'</em>
+			   						</td>
+			   					</tr>
+			   					<tr>
+			   						<td>
+			   							mainContentOverAction
+			   						</td>
+			   						<td>
+			   							When mouse over main circle, inner Big circle may viewed in circle mode (option value: <em class="blue">normal</em>) or rectangle with rounded corners (option value: <em class="blue">enlarge-view</em>).
+			   							<div class="highlight">Available Values: <b>'normal'</b> , <b>'enlarge-view'</b></div>
+			   							<b>Default value when {contentType:images}</b><em class="green">'normal'</em>
+			   							<b>Default value when {contentType:text}</b><em class="green">'enlarge-view'</em>
+			   						</td>
+			   					</tr>
+			   				</tbody>
+			   			</table>
+			   			</div>
+			   		</div>
+			   	</div>
+			</div>
+   		</section>
+   		<section id="license">
+   			<h2 class="text-center">License</h2>
+   			<p>Free for Personal Projects and Learning, <a href="https://www.paypal.com/cgi-bin/webscr?&amp;cmd=_xclick&amp;business=aljehni@gmail.com&amp;currency_code=USD&amp;amount=12&amp;item_name=Support_jCircle" target="_blank">Donate 12$ Before Use jCircle in Commercial Projects</a></p>
+   		</section>
+   		<section id="support">
+   			<h2 class="text-center">Support</h2>
+   			<p>If you noticed any bug Or have any question send me: <span class="highlight">salamj[@]gmail.com</span><br>
+   			And if you want <em class="highlight">A Paid Support</em> like add some code or animations or add jCircle to your project..., Ask me at: <abbr class="highlight">salamj[@]gmail.com</abbr></p>
+   		</section>
+
+    <div id="color"></div>
+    <footer>
+    	<p class="text-center text-uppercase">All right Reseved, 2017&copy;
+    	salam aljehni, salamj@gmail.com</p>
+    </footer>
+        <script src="js/jquery-1.11.2.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/smooth-scroll.js"></script>
+        <script src="js/jquery.waypoints.min.js"></script>    
+        <script src="js/jCircle.js"></script>
+        <script src="js/main.js"></script>
+     </body>
+</html><!doctype html>
+<html lang="en">
+     <head>
+          <meta charset="utf-8">
+          <meta http-equiv="x-ua-compatible" content="ie=edge">
+    	  <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>jCircl - Free and Opensource javascript Library</title>
+          <meta name="description" content="free and opensource javascript library to view images gallery or any html content in circle style with mini circles around it">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" href="css/normalize.css">
+          <link rel="stylesheet" href="css/bootstrap.css">
+          
+          <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet"> 
+          <link rel="stylesheet" href="css/animate.css">
+          <link rel="stylesheet" href="css/font-awesome.min.css">
+          <link rel="stylesheet" href="css/jCircle.css">
+          <link rel="stylesheet" href="css/main.css">
+          <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+     </head>
+     <body data-spy="scroll" data-target=".navbar">
+     	<header>
+      		<nav class="navbar navbar-default navbar-fixed-top">
+	      		<div class="navbar-header">
+	      		<div id="logo-min" class="visible-xs">jCircle</div>
+	       		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	       			<span class="fa fa-th"></span>
+	       		</button>
+	       		</div><!-- ./navbar-header -->
+	      		<div class="container">
+		        	<div class="navbar-collapse collapse">
+				        <ul class="nav nav-justified">
+				           <li><a data-scroll href="#overview"><span class="fa fa-television"></span> Overview</a></li>
+				           <li><a data-scroll href="#demo"><span class="fa fa-code"></span> Demo</a></li>
+				           <li><a data-scroll href="#download"><span class="fa fa-download"></span> Download</a></li>
+				           <li><a data-scroll href="#setup"><span class="fa fa-cog"></span> Setup</a></li>
+				           <li><a data-scroll href="#license"><span class="fa fa-copyright"></span> License</a></li>
+				           <li><a data-scroll href="#support"><span class="fa fa-support"></span> Support</a></li>
+				        </ul>
+		        	</div>
+	       		</div>
+
+	       		
+       		</nav>
+      	</header>
+      	<section id="overview">
+      		<div class="jumotron landing">
+      			<h1>jCircle</h1>
+      			<p>Free,Sweet and Simple javaScript library that will give you a new way to view images gallery or HTML contents.<br>
+      			It does not require any other javascript libraries.
+      			<div class="code">
+      		<pre style="background:#181818;color:#f8f8f8;max-width:300px;"><span style="color:#f9ee98">var</span> myCircle<span style="color:#cda869">=</span><span style="color:#cda869">new</span> <span style="color:#9b703f">jCircle</span>();
+myCircle.create();
+</pre>
+      			</div>
+      			<a href="demo.html" style="color:#fefefe;">View Demo</a>
+      			
+      			</p>
+
+      		</div>
+      	</section>
+      	<section id="demo">
+      		<h2 class="text-center">Demo</h2>
+      		<div class="container">
+      			<div class="row">
+	      			<div class="col-xs-12 col-sm-6">
+	      				<h3 class="text-center">Result</h3>
+	      				<div id="circles-container"> 
+							<div id="main-circle-content"></div>
+							<div id="circle">
+								<div class="min-circle" data-inside="min-circle">
+									<a href="imgs/1.jpg">
+										<img src="imgs/thumb_1.jpg" alt="">
+									</a>
+									<div class="content-text">Caption 1</div>
+								</div>
+								<div class="min-circle" data-inside="min-circle">
+									<a href="imgs/2.jpg">
+										<img src="imgs/thumb_2.jpg" alt="">
+									</a>
+									<div class="content-text">Caption 2</div>
+								</div>
+								<div class="min-circle" data-inside="min-circle">
+									<a href="imgs/3.jpg">
+										<img src="imgs/thumb_3.jpg" alt="">
+									</a>
+									<div class="content-text">Caption 3</div>
+								</div>
+								<div class="min-circle" data-inside="min-circle">
+									<a href="imgs/2.jpg">
+										<img src="imgs/thumb_2.jpg" alt="">
+									</a>
+									<div class="content-text">Caption 4</div>
+
+								</div>
+								<div class="min-circle" data-inside="min-circle">
+									<a href="imgs/3.jpg">
+										<img src="imgs/thumb_3.jpg" alt="">
+									</a>
+									<div class="content-text">Caption 5</div>
+								</div>
+								<div class="min-circle" data-inside="min-circle">
+									<a href="imgs/1.jpg">
+										<img src="imgs/thumb_1.jpg" alt="">
+									</a>
+									<div class="content-text">Caption 6</div>
+								</div>
+								<div class="min-circle" data-inside="min-circle">
+									<a href="imgs/2.jpg">
+										<img src="imgs/thumb_2.jpg" alt="">
+									</a>
+									<div class="content-text">Caption 7</div>
+								</div>
+								<div class="min-circle" data-inside="min-circle">
+									<a href="imgs/3.jpg">
+										<img src="imgs/thumb_3.jpg" alt="">
+									</a>
+									<div class="content-text">Caption 8</div>
+								</div>
+								
+							</div>
+						</div>
+      				</div>
+	      			<div class="col-xs-12 col-sm-6">
+	      				<h3 class="text-center">Code</h3>
+	      				<b>HTML</b>
+	      				<pre style="background:#181818;color:#f8f8f8"><span style="color:#ac885b">&lt;<span style="color:#ac885b">div</span> <span style="color:#ac885b">id</span>=<span style="color:#8f9d6a">"circles-container"</span>></span>
+    <span style="color:#ac885b">&lt;<span style="color:#ac885b">div</span> <span style="color:#ac885b">id</span>=<span style="color:#8f9d6a">"main-circle-content"</span>>&lt;/<span style="color:#ac885b">div</span>></span>
+    <span style="color:#ac885b">&lt;<span style="color:#ac885b">div</span> <span style="color:#ac885b">id</span>=<span style="color:#8f9d6a">"circle"</span>></span>
+        <span style="color:#ac885b">&lt;<span style="color:#ac885b">div</span> <span style="color:#ac885b">class</span>=<span style="color:#8f9d6a">"min-circle"</span> <span style="color:#ac885b">data-inside</span>=<span style="color:#8f9d6a">"min-circle"</span>></span>
+            <span style="color:#e0c589">&lt;<span style="color:#e0c589">a</span> <span style="color:#e0c589">href</span>=<span style="color:#8f9d6a">"imgs/1.jpg"</span>></span>
+                <span style="color:#e0c589">&lt;<span style="color:#e0c589">img</span> <span style="color:#e0c589">src</span>=<span style="color:#8f9d6a">"imgs/thumb_1.jpg"</span> <span style="color:#e0c589">alt</span>=<span style="color:#8f9d6a">""</span>></span>
+            <span style="color:#e0c589">&lt;/<span style="color:#e0c589">a</span>></span>
+            <span style="color:#ac885b">&lt;<span style="color:#ac885b">div</span> <span style="color:#ac885b">class</span>=<span style="color:#8f9d6a">"content-text"</span>></span>Caption 1<span style="color:#ac885b">&lt;/<span style="color:#ac885b">div</span>></span>
+        <span style="color:#ac885b">&lt;/<span style="color:#ac885b">div</span>></span>
+        <span style="color:#ac885b">&lt;<span style="color:#ac885b">div</span> <span style="color:#ac885b">class</span>=<span style="color:#8f9d6a">"min-circle"</span> <span style="color:#ac885b">data-inside</span>=<span style="color:#8f9d6a">"min-circle"</span>></span>
+            <span style="color:#e0c589">&lt;<span style="color:#e0c589">a</span> <span style="color:#e0c589">href</span>=<span style="color:#8f9d6a">"imgs/2.jpg"</span>></span>
+                <span style="color:#e0c589">&lt;<span style="color:#e0c589">img</span> <span style="color:#e0c589">src</span>=<span style="color:#8f9d6a">"imgs/thumb_2.jpg"</span> <span style="color:#e0c589">alt</span>=<span style="color:#8f9d6a">""</span>></span>
+            <span style="color:#e0c589">&lt;/<span style="color:#e0c589">a</span>></span>
+            <span style="color:#ac885b">&lt;<span style="color:#ac885b">div</span> <span style="color:#ac885b">class</span>=<span style="color:#8f9d6a">"content-text"</span>></span>Caption 2<span style="color:#ac885b">&lt;/<span style="color:#ac885b">div</span>></span>
+        <span style="color:#ac885b">&lt;/<span style="color:#ac885b">div</span>></span>
+        ...
+    <span style="color:#ac885b">&lt;/<span style="color:#ac885b">div</span>></span>
+<span style="color:#ac885b">&lt;/<span style="color:#ac885b">div</span>></span>
+</pre>
+	      				<b>javascript</b>
+	      					<pre style="background:#181818;color:#f8f8f8"><span style="color:#f9ee98">var</span> circle<span style="color:#cda869">=</span><span style="color:#cda869">new</span> <span style="color:#9b703f">jCircle</span>({
+        <span style="color:#8f9d6a">'container'</span>: <span style="color:#8f9d6a">'circles-container'</span>,
+        <span style="color:#8f9d6a">'circle'</span>: <span style="color:#8f9d6a">'circle'</span>,
+        <span style="color:#8f9d6a">'mainContent'</span>:<span style="color:#8f9d6a">'main-circle-content'</span>,
+        <span style="color:#8f9d6a">'animateCircles'</span>:<span style="color:#cf6a4c">true</span>,
+        <span style="color:#8f9d6a">'speed'</span>:<span style="color:#cf6a4c">3</span>,
+        <span style="color:#8f9d6a">'mainViewStyle'</span>:<span style="color:#8f9d6a">'normal'</span>,
+        <span style="color:#8f9d6a">'minCirclesEffectOver'</span>:<span style="color:#8f9d6a">'pulse'</span>,
+        <span style="color:#8f9d6a">'contentType'</span>:<span style="color:#8f9d6a">'images'</span>,
+        <span style="color:#8f9d6a">'stopOnOverMain'</span>:<span style="color:#cf6a4c">false</span>,
+        <span style="color:#8f9d6a">'mainContentOverAction'</span>:<span style="color:#8f9d6a">'normal'</span>
+    });
+circle.create();
+</pre>
+	      				
+	      			</div>
+	      			<div class="clearfix"></div>
+	      			<div class="col-xs-12 col-sm-6">
+	      				<h3 class="text-center">Code</h3>
+	      				<b>javascript</b>
+	      				<pre style="background:#181818;color:#f8f8f8"><span style="color:#f9ee98">var</span> textCircle<span style="color:#cda869">=</span><span style="color:#cda869">new</span> <span style="color:#9b703f">jCircle</span>({
+        <span style="color:#8f9d6a">'container'</span>: <span style="color:#8f9d6a">'circles-container-text'</span>,
+        <span style="color:#8f9d6a">'circle'</span>: <span style="color:#8f9d6a">'circle-text'</span>,
+        <span style="color:#8f9d6a">'mainContent'</span>:<span style="color:#8f9d6a">'main-circle-content-text'</span>,
+        <span style="color:#8f9d6a">'animateCircles'</span>:<span style="color:#cf6a4c">true</span>,
+        <span style="color:#8f9d6a">'speed'</span>:<span style="color:#cf6a4c">3</span>,
+        <span style="color:#8f9d6a">'mainViewStyle'</span>:<span style="color:#8f9d6a">'normal'</span>,
+        <span style="color:#8f9d6a">'minCirclesEffectOver'</span>:<span style="color:#8f9d6a">'rotate'</span>,
+        <span style="color:#8f9d6a">'contentType'</span>:<span style="color:#8f9d6a">'text'</span>,
+        <span style="color:#8f9d6a">'stopOnOverMain'</span>:<span style="color:#cf6a4c">true</span>
+    });
+textCircle.create();
+</pre>
+	      			</div>
+	      			<div class="col-xs-12 col-sm-6">
+	      			<h3 class="text-center">Result</h3>
+	      				<div id="circles-container-text"> 
+							<div id="main-circle-content-text"></div>
+							<div id="circle-text">
+								<div class="min-circle" data-inside="min-circle">
+									<a href="imgs/1.jpg" style="display:block;width:80%;margin:30% 10%;height:40%;text-align:center;font-size:1.2em;">
+										Title
+									</a>
+									<div class="content-text">
+										<h2>Title</h2>
+										<p>we are always keep for nice idea about sun and other copleted jobs about us.</p>
+										<p><em>EM</em> is good way about tiger and it...</p>
+										<img src="imgs/thumb_1.jpg" alt="" style="width:20%;height:20%;float:left;">
+										Is it possible to improve some taskes..this text have no meaning any way :).
+									</div>
+								</div>
+								<div class="min-circle" data-inside="min-circle">
+									<a href="imgs/2.jpg" style="display:block;width:80%;margin:30% 10%;height:40%;text-align:center;font-size:1.2em;">
+										About
+									</a>
+									<div class="content-text">
+										<h2>About</h2>
+										<p>we are always keep for nice idea about sun and other copleted jobs about us.</p>
+										<p><em>EM</em> is good way about tiger and it...</p>
+										<span class="fa fa-heart" style="color:red;font-size:2.2em;"></span>Is it possible to improve some :)
+									</div>
+								</div>
+								<div class="min-circle" data-inside="min-circle">
+									<a href="imgs/3.jpg" style="display:block;width:80%;margin:30% 10%;height:40%;text-align:center;font-size:1.2em;">
+										Services
+									</a>
+									<div class="content-text">
+										<h2>Services</h2>
+										<p>Services always keep for nice idea about sun and other copleted jobs about us.</p>
+										<p><b>Bold</b> is good way about tiger and it...</p>
+										<span class="fa fa-link" style="color:green;font-size:1em;"></span>Is it possible to improve some taskes..this text have no meaning any way :).
+									</div>
+								</div>
+								<div class="min-circle" data-inside="min-circle">
+									<a href="imgs/3.jpg" style="display:block;width:80%;margin:30% 10%;height:40%;text-align:center;font-size:1.2em;">
+										Support
+									</a>
+									<div class="content-text">
+										<h2>Support</h2>
+										<p>Support always keep for nice idea about sun and other copleted jobs about us.</p>
+										<p><b>Yep</b> is good way about tiger and it...</p>
+										<span class="fa fa-download" style="color:blue;font-size:1em;"></span>Is it possible to improve some taskes..this text have no meaning any way :).
+									</div>
+								</div>
+								<div class="min-circle" data-inside="min-circle">
+									<a href="imgs/3.jpg" style="display:block;width:80%;margin:30% 10%;height:40%;text-align:center;font-size:1.2em;">
+										Offers
+									</a>
+									<div class="content-text">
+										<h2>Offers</h2>
+										<p>Offers always keep for nice idea about sun and other copleted jobs about us.</p>
+										<p>is good way about tiger and it...</p>
+										<span class="fa fa-circle" style="color:green;font-size:1em;"></span>Is it possible to improve some taskes..this text have no meaning any way :).
+									</div>
+								</div>
+								<div class="min-circle" data-inside="min-circle">
+									<a href="imgs/3.jpg" style="display:block;width:80%;margin:30% 10%;height:40%;text-align:center;font-size:1.2em;">
+										Jobs
+									</a>
+									<div class="content-text">
+										<h2>Jobs</h2>
+										<p>Jobs always keep for nice idea about sun and other copleted jobs about us.</p>
+										<p><b>Bold</b> is good way about tiger and it...</p>
+										<span class="fa fa-list" style="color:red;font-size:1em;"></span>Is it possible to improve some taskes..this text have no meaning any way :).
+									</div>
+								</div>
+								<div class="min-circle" data-inside="min-circle">
+									<a href="imgs/3.jpg" style="display:block;width:80%;margin:30% 10%;height:40%;text-align:center;font-size:1.2em;">
+										Like
+									</a>
+									<div class="content-text">
+										<h2>Like</h2>
+										<p>Like always keep for nice idea about sun and other copleted jobs about us.</p>
+										<p><span class="fa fa-gg" style="color:green;font-size:3em;"> is good way about tiger and it...</span></p>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+	      			</div>
+	      		</div>
+      		</div>
+      	</section>
+      	<section id="download">
+      		<h2 class="text-center">Download</h2>
+      		<p>
+      		Download jCircle, downloaded file contains .js library, .css files required and .html file demo.</p>
+      		<a href="download.php"><button class="btn btn-success btn-md">Download jCircle.v1.0</button></a>
+      		<p>
+      		<a href="https://www.paypal.com/cgi-bin/webscr?&amp;cmd=_xclick&amp;business=aljehni@gmail.com&amp;currency_code=USD&amp;amount=12&amp;item_name=Support_jCircle" target="_blank">Donate</a> to Support jCircle and our incoming projects.
+      		</p>
+      	</section>
+   		<section id="setup">
+   			<h2 class="text-center">Setup</h2>
+   			<div class="container">
+   				<div class="row">
+   					<div class="con-xs-12 col-sm-6">
+   						<h3 class="text-center">Instructions</h3>
+			   			<div class="setup">
+			   				<ol type="I">
+			   					<li><a data-scroll href="#download">Download files</a></li>
+			   					<li>UnZip files and move jCircle.js and jCircle.css to your project directory or sub directory.</li>
+			   					<li>Add jCircle.js and jCircle.css to your .html file:<br>
+			 						<h5>jCircle.js</h5>
+			 						<pre style="background:#181818;color:#f8f8f8"><span style="color:#ac885b">&lt;<span style="color:#ac885b">script</span> <span style="color:#ac885b">src</span>=<span style="color:#8f9d6a">"jCircle.js"</span>>&lt;/<span style="color:#ac885b">script</span>></span>
+</pre>
+			   						<h5>jCircle.css</h5>
+			   						<pre style="background:#181818;color:#f8f8f8"><span style="color:#e0c589">&lt;<span style="color:#e0c589">link</span> <span style="color:#e0c589">rel</span>=<span style="color:#8f9d6a">"stylesheet"</span> <span style="color:#e0c589">href</span>=<span style="color:#8f9d6a">"css/jCircle.css"</span>></span>
+</pre>
+			   					</li>
+			   					<li>In your .html file where you want to add circled gallery create div block like this:<br>
+			   					<pre style="background:#181818;color:#f8f8f8"><span style="color:#ac885b">&lt;<span style="color:#ac885b">div</span> <span style="color:#ac885b">id</span>=<span style="color:#8f9d6a">"circles-container"</span>></span>
+    <span style="color:#ac885b">&lt;<span style="color:#ac885b">div</span> <span style="color:#ac885b">id</span>=<span style="color:#8f9d6a">"main-circle-content"</span>>&lt;/<span style="color:#ac885b">div</span>></span>
+    <span style="color:#ac885b">&lt;<span style="color:#ac885b">div</span> <span style="color:#ac885b">id</span>=<span style="color:#8f9d6a">"circle"</span>></span>
+        <span style="color:#ac885b">&lt;<span style="color:#ac885b">div</span> <span style="color:#ac885b">class</span>=<span style="color:#8f9d6a">"min-circle"</span> <span style="color:#ac885b">data-inside</span>=<span style="color:#8f9d6a">"min-circle"</span>></span>
+            <span style="color:#e0c589">&lt;<span style="color:#e0c589">a</span> <span style="color:#e0c589">href</span>=<span style="color:#8f9d6a">"imgs/1.jpg"</span>></span>
+                <span style="color:#e0c589">&lt;<span style="color:#e0c589">img</span> <span style="color:#e0c589">src</span>=<span style="color:#8f9d6a">"imgs/thumb_1.jpg"</span> <span style="color:#e0c589">alt</span>=<span style="color:#8f9d6a">""</span>></span>
+            <span style="color:#e0c589">&lt;/<span style="color:#e0c589">a</span>></span>
+            <span style="color:#ac885b">&lt;<span style="color:#ac885b">p</span> <span style="color:#ac885b">class</span>=<span style="color:#8f9d6a">"content-text"</span>></span>Caption 1<span style="color:#ac885b">&lt;/<span style="color:#ac885b">p</span>></span>
+        <span style="color:#ac885b">&lt;/<span style="color:#ac885b">div</span>></span>
+        <span style="color:#ac885b">&lt;<span style="color:#ac885b">div</span> <span style="color:#ac885b">class</span>=<span style="color:#8f9d6a">"min-circle"</span> <span style="color:#ac885b">data-inside</span>=<span style="color:#8f9d6a">"min-circle"</span>></span>
+            <span style="color:#e0c589">&lt;<span style="color:#e0c589">a</span> <span style="color:#e0c589">href</span>=<span style="color:#8f9d6a">"imgs/2.jpg"</span>></span>
+                <span style="color:#e0c589">&lt;<span style="color:#e0c589">img</span> <span style="color:#e0c589">src</span>=<span style="color:#8f9d6a">"imgs/thumb_2.jpg"</span> <span style="color:#e0c589">alt</span>=<span style="color:#8f9d6a">""</span>></span>
+            <span style="color:#e0c589">&lt;/<span style="color:#e0c589">a</span>></span>
+            <span style="color:#ac885b">&lt;<span style="color:#ac885b">p</span> <span style="color:#ac885b">class</span>=<span style="color:#8f9d6a">"content-text"</span>></span>Caption 2<span style="color:#ac885b">&lt;/<span style="color:#ac885b">p</span>></span>
+        <span style="color:#ac885b">&lt;/<span style="color:#ac885b">div</span>></span>
+        ...
+    <span style="color:#ac885b">&lt;/<span style="color:#ac885b">div</span>></span>
+<span style="color:#ac885b">&lt;/<span style="color:#ac885b">div</span>></span>
+</pre>
+
+			   					</li>
+			   					<li>Create jCircle object and call .create method on it with or without options:<br>
+			   					<pre style="background:#181818;color:#f8f8f8"><span style="color:#f9ee98">var</span> myCircle<span style="color:#cda869">=</span><span style="color:#cda869">new</span> <span style="color:#9b703f">jCircle</span>();
+myCircle.create();
+</pre></li>
+			   				</ol>
+			   				<h4 class="text-center">Pass options</h4>
+			   				You can change defaults by passing options in creation instance like this:
+			   				<pre style="background:#181818;color:#f8f8f8">new jCircle({
+    animateCircles: <span style="color:#cf6a4c">false</span>,
+    mainContentOverAction: <span style="color:#8f9d6a">'enlarge-view'</span>
+});
+</pre>
+			   				All options is Listed in the table in right.
+			   			</div>
+			   		</div>
+			   		<div class="col-xs-12 col-sm-6">
+			   			<h3 class="text-center">Options</h3>
+			   			You may change some options in <em>new jCircle()</em>, All options is listed below:<br>
 			   			<div class="table-responsive">
 			   			<table class="table table-striped">
 			   				<thead>
